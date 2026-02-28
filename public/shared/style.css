@@ -1,0 +1,337 @@
+/* =====================================================
+   COSIGO UNIFIED SYSTEM CSS
+   Single-source design system
+   Replaces: metal-ui.css + satellite style.css
+   Architecture: tokens → layout → components → pages
+===================================================== */
+
+/* ============================= */
+/* ROOT TOKENS */
+/* ============================= */
+:root {
+  /* Core palette */
+  --bg: #0b0f15;
+  --panel: #303030;
+  --ink: #8a8e9c;
+  --muted: #606770;
+  --line: #363c44;
+
+  /* Metals */
+  --gold: #d4af37;
+  --silver: #c0c0c0;
+  --copper: #a07954;
+
+  --gold-grad: linear-gradient(135deg, #fff2b0 0%, #e2c146 35%, #b28d1a 100%);
+  --silver-grad: linear-gradient(135deg, #ffffff 0%, #d7d7d7 35%, #9b9b9b 100%);
+  --copper-grad: linear-gradient(135deg, #ffd6ad 0%, #c27438 35%, #8a4f1d 100%);
+
+  /* Spacing */
+  --s1: 6px;
+  --s2: 12px;
+  --s3: 18px;
+  --s4: 28px;
+  --s5: 42px;
+
+  /* Radius */
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 18px;
+
+  /* Shadow */
+  --shadow: 0 10px 28px rgba(0, 0, 0, .28);
+}
+
+/* ============================= */
+/* BASE */
+/* ============================= */
+* {
+  box-sizing: border-box
+}
+
+body {
+  margin: 0;
+  font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+  background: #0b0f15;
+  color: var(--ink);
+}
+
+/* ============================= */
+/* LAYOUT */
+/* ============================= */
+main {
+  width: 100%;
+}
+
+.wrap {
+  max-width: 1100px;
+  margin: 36px auto;
+  padding: 0 18px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+/* ============================= */
+/* METAL BAR */
+/* ============================= */
+.bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 6px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 22px;
+}
+
+.bar .g {
+  background: var(--gold-grad)
+}
+
+.bar .s {
+  background: var(--silver-grad)
+}
+
+.bar .c {
+  background: var(--copper-grad)
+}
+
+/* ============================= */
+/* CARDS */
+/* ============================= */
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: var(--shadow);
+  margin-bottom: 18px;
+}
+
+/* ============================= */
+/* DOMAINS */
+/* ============================= */
+.domain {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(255, 255, 255, .02), rgba(255, 255, 255, 0));
+}
+
+.domain .metal {
+  height: 5px;
+  background: var(--gold-grad);
+}
+
+.domain .inner {
+  padding: 18px;
+}
+
+/* ============================= */
+/* TYPOGRAPHY */
+/* ============================= */
+h1 {
+  color: #ccb757;
+  margin: 0
+}
+
+.lead {
+  color: #4b4e57
+}
+
+.card p {
+  color: var(--muted)
+}
+
+.domain h3 {
+  color: #555
+}
+
+.domain p {
+  color: #8f98ad
+}
+
+h2 {
+  color: #946d18;
+  font-weight: 600
+}
+
+li {
+  color: #946d18
+}
+
+/* ============================= */
+/* GLOBAL LINKS */
+/* ============================= */
+
+a {
+  color: #9b9ea8;
+  /* light grey */
+  text-decoration: none;
+}
+
+a:visited {
+  color: #9b9ea8;
+  /* same as normal */
+}
+
+a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #ffffff;
+}
+
+/* ============================= */
+/* CHIPS */
+/* ============================= */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+  justify-content: center;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: #303030;
+  border: 1px solid #6d6d6d;
+  color: #898d9c;
+  text-decoration: none;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.chip svg {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+}
+
+.chip:hover {
+  filter: brightness(1.1)
+}
+
+/* ============================= */
+/* FORMS */
+/* ============================= */
+.contact-form {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  background: #303030;
+  border: 1px solid #303030;
+  color: #979ab1;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #4f5664;
+}
+
+.contact-form button {
+  background: var(--gold-grad);
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  color: #303030;
+}
+
+/* ========================= */
+/* Mobile Responsive Layout */
+/* ========================= */
+
+@media (max-width: 900px) {
+
+  .wrap {
+    padding: 14px;
+  }
+
+  .grid {
+    display: block;
+    /* stack cards */
+  }
+
+  .domain {
+    margin-bottom: 16px;
+  }
+
+  .card {
+    padding: 14px;
+  }
+
+  .bar {
+    margin-bottom: 12px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  .lead {
+    font-size: 14px;
+  }
+
+  p,
+  li {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 480px) {
+
+  h1 {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 17px;
+  }
+
+  .card {
+    border-radius: 14px;
+  }
+
+  .domain .inner {
+    padding: 12px;
+  }
+}
+
+/* ============================= */
+/* FOOTER */
+/* ============================= */
+footer {
+  margin-top: 40px;
+  text-align: center;
+  color: #909296;
+  font-size: .9rem;
+  padding-bottom: 24px;
+}

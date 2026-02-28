@@ -1,0 +1,245 @@
+/* =====================================================
+  COSIGO SATELLITE — CORE VARIABLES
+===================================================== */
+:root{
+  /* Neutrals */
+  --ink: #141414;
+  --paper: #fbfbf9;
+  --smoke: #f2f2ef;
+  --ash: #6c6c6c;
+  --line: rgba(20,20,20,.14);
+
+  /* Metals */
+  --copper: #b46a3c;
+  --copper-deep: #8d4a27;
+  --silver: #b8c0c7;
+  --silver-deep: #8c98a3;
+  --gold: #c8a24a;
+  --gold-deep: #8e7433;
+
+  /* Accents */
+  --shadow: 0 10px 22px rgba(0,0,0,.08);
+  --shadow-soft: 0 3px 10px rgba(0,0,0,.06);
+  --radius: 10px;
+}
+
+
+/* =====================================================
+  PAGE / BACKGROUND
+===================================================== */
+body{
+  margin: 0;
+  padding: 2rem;
+  font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+  color: var(--ink);
+  background:
+    radial-gradient(1400px 700px at 20% 0%, rgba(200,162,74,.10), transparent 55%),
+    radial-gradient(1100px 600px at 85% 12%, rgba(180,106,60,.10), transparent 60%),
+    linear-gradient(180deg, var(--paper), var(--smoke));
+}
+
+/* Decorative frame */
+body::before{
+  content:"";
+  position: fixed;
+  inset: 18px;
+  border: 1px solid rgba(20,20,20,.10);
+  border-radius: 14px;
+  pointer-events: none;
+}
+
+
+/* =====================================================
+  HEADER / BRANDING
+===================================================== */
+.site-header{
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+}
+
+.site-logo{
+  height: 40px;
+  width: auto;
+  margin-bottom: 0.75rem;
+}
+
+@media (min-width: 768px){
+  .site-logo{ height: 48px; }
+}
+
+h1{
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: .02em;
+}
+
+.tagline{
+  margin-top: .5rem;
+  color: var(--ash);
+  max-width: 68ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* =====================================================
+  NAVIGATION
+===================================================== */
+.main-nav{
+  display: flex;
+  flex-wrap: wrap;
+  gap: .85rem 1rem;
+  padding: 1rem 0;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+@media (max-width: 600px){
+  .main-nav{ justify-content: center; }
+}
+
+.main-nav a{
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  white-space: nowrap;
+  padding: .28rem .45rem;
+  border-radius: 8px;
+}
+
+.main-nav a:hover{
+  background: rgba(200,162,74,.12);
+  outline: 1px solid rgba(200,162,74,.25);
+}
+
+
+/* =====================================================
+  CONTENT SECTIONS
+===================================================== */
+main section{
+  margin-bottom: 2rem;
+  padding: 1.5rem 1.75rem;
+  background: rgba(255,255,255,.78);
+  backdrop-filter: blur(2px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+}
+
+
+/* =====================================================
+  BADGES / ICONS
+===================================================== */
+.badge{
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .18rem .55rem;
+  font-size: .75rem;
+  font-weight: 700;
+  border-radius: 999px;
+  border: 1px solid rgba(200,162,74,.35);
+  color: var(--gold-deep);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.75), rgba(242,242,239,.75));
+}
+
+.eth-icon{
+  height: 12px;
+  width: auto;
+  vertical-align: middle;
+  margin-right: .3rem;
+}
+
+
+/* =====================================================
+  ADDRESS ROWS (CONTRACTS / ROLES)
+===================================================== */
+.addr{
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  padding: .28rem .55rem;
+  border-radius: 999px;
+  border: 1px solid rgba(184,192,199,.55);
+  background: rgba(255,255,255,.70);
+}
+
+.addr a{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: .88rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.addr a:hover{
+  text-decoration: underline;
+  text-decoration-color: rgba(180,106,60,.55);
+}
+
+.addr button{
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: .78rem;
+  font-weight: 700;
+  padding: .18rem .55rem;
+  cursor: pointer;
+  border-radius: 999px;
+  border: 1px solid rgba(180,106,60,.45);
+  color: var(--copper-deep);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.85), rgba(242,242,239,.85));
+}
+
+.addr button:hover{
+  border-color: rgba(200,162,74,.65);
+  box-shadow: 0 4px 14px rgba(180,106,60,.14);
+}
+
+
+/* =====================================================
+  LINKS
+===================================================== */
+main a{
+  color: var(--copper-deep);
+}
+
+main a:hover{
+  color: var(--gold-deep);
+}
+
+
+/* =====================================================
+  ORIGIN TOKEN (COSIGO LINK)
+===================================================== */
+.origin-token{
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.origin-token img{
+  height: 64px; /* 48 / 64 / 72 */
+  width: auto;
+  opacity: .9;
+  filter: drop-shadow(0 6px 14px rgba(0,0,0,.25));
+}
+
+.origin-token a:hover img{
+  opacity: 1;
+  filter: drop-shadow(0 10px 22px rgba(180,106,60,.35));
+}
+
+
+/* =====================================================
+  FOOTER
+===================================================== */
+footer{
+  margin-top: 2rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: .92rem;
+  color: var(--ash);
+}

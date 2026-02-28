@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Cosigo — Silver Redemption</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index,follow">
+
+    <!-- Shared System Styles -->
+    <link rel="stylesheet" href="/shared/nav.css">
+    <link rel="stylesheet" href="shared/style.css">
+
+    <!-- Favicons -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32"
+      href="/assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16"
+      href="/assets/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+
+  </head>
+
+  <body>
+
+    <!-- ========================= -->
+    <!-- Cosigo Universal Nav -->
+    <!-- ========================= -->
+    <div id="cosigo-nav"></div>
+
+    <script>
+fetch('/shared/nav.html')
+  .then(res => res.text())
+  .then(html => { document.getElementById('cosigo-nav').innerHTML = html; });
+</script>
+
+    <!-- ========================= -->
+    <!-- Main Content -->
+    <!-- ========================= -->
+    <main>
+      <div class="wrap">
+
+        <!-- Metal identity bar -->
+        <div class="bar">
+          <i class="g"></i><i class="s"></i><i class="c"></i>
+        </div>
+
+        <!-- Header Card -->
+        <section class="card">
+          <h1>Cosigo — Silver Redemption</h1>
+          <p class="lead"><strong>Physical Silver Redemption
+              Interface</strong></p>
+          <p>Redeem registered physical silver represented by Cosigo tokens.</p>
+        </section>
+
+        <!-- Grid Layout -->
+        <section class="grid">
+
+          <!-- Redemption Interface -->
+          <article class="domain">
+            <div class="metal"></div>
+            <div class="inner">
+
+              <!-- ORIGINAL CONTENT (UNCHANGED) -->
+              <div class="card" id="cosigoRedeem">
+                <h1>Silver Redemption</h1>
+                <p>Redeem registered physical silver represented by Cosigo
+                  tokens.</p>
+
+                <label>Amount to redeem (mg)</label>
+                <input id="cr_amount" type="number" min="1" step="1"
+                  placeholder="e.g. 2500">
+
+                <label>Delivery method</label>
+                <select id="cr_delivery">
+                  <option value="inperson" selected>In person</option>
+                  <option value="ship">Ship</option>
+                </select>
+
+                <label>ZIP / postal code (if shipping)</label>
+                <input id="cr_zip" type="text" maxlength="10"
+                  placeholder="optional">
+
+                <div class="row">
+                  <button id="cr_preview" class="btn">Preview</button>
+                  <button id="cr_btn" class="btnPrimary">Connect &
+                    Redeem</button>
+                </div>
+
+                <div id="cr_msg" class="msg"></div>
+
+                <div id="cr_quote" class="box" style="display:none"></div>
+                <div id="cr_result" class="box"
+                  style="display:none;background:#fff"></div>
+
+                <hr>
+
+                <hr>
+
+<div class="box" style="background:#fff">
+  <div style="font-weight:800;margin-bottom:6px">Shipping / fulfillment</div>
+  <div style="font-size:13px;line-height:1.5">
+    If you selected <b>Ship</b>, send us your <b>transaction hash</b> after the on-chain redemption is confirmed:
+    <ul style="margin:8px 0 0 18px;padding:0">
+      <li>
+        Email: <a href="mailto:sales@cosigo.io">sales@cosigo.io</a>
+      </li>
+      <li>
+        Or use the contact form: <a href="https://contact.cosigo.io">contact.cosigo.io</a>
+      </li>
+    </ul>
+
+    <div style="margin-top:10px;font-size:12px;color:var(--paper-muted);line-height:1.4">
+      Include: tx hash, amount (mg), delivery method, and your shipping details.
+    </div>
+  </div>
+</div>
+
+                <!-- HOW TO REDEEM (UNCHANGED CONTENT) -->
+                <div class="box" style="background:#fff">
+                  <div style="font-weight:800;margin-bottom:6px">How to redeem
+                    (phone + wallet browser)</div>
+                  <div style="font-size:13px;line-height:1.5">
+                    <div style="margin:10px 0 6px;font-weight:750">Before you
+                      start</div>
+                    <ol style="margin:0 0 10px 18px;padding:0">
+                      <li>Make sure you have <b>Cosigo tokens</b> in your
+                        wallet.</li>
+                      <li>Make sure you have a small amount of <b>ETH</b> for
+                        network fees.</li>
+                      <li>This page works on <b>Ethereum mainnet</b> (chainId
+                        1).</li>
+                    </ol>
+
+                    <div
+                      style="margin:10px 0 6px;font-weight:750">Step-by-step</div>
+                    <ol style="margin:0 0 10px 18px;padding:0">
+                      <li><b>Open this page inside your wallet browser</b>
+                        (recommended).</li>
+                      <li><b>Enter the amount</b> you want to redeem in
+                        <b>milligrams (mg)</b>.</li>
+                      <li>Select your <b>delivery method</b>.</li>
+                      <li>Tap <b>Preview</b> to see fees.</li>
+                      <li>Tap <b>Connect & Redeem</b>.</li>
+                      <li>Confirm transaction in wallet.</li>
+                      <li>Wait for tx hash confirmation.</li>
+                    </ol>
+
+                    <div
+                      style="font-size:12px;color:var(--paper-muted);line-height:1.4">
+                      <b>Important:</b> This action sends an on-chain
+                      transaction. Tokens are burned according to the contract
+                      rules.
+                      Always verify you are on <b>redeem.cosigo.io</b> and the
+                      contract address.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="dbg">
+                  <div>Account: <span id="dbg_acct">—</span></div>
+                  <div>Chain: <span id="dbg_chain">—</span></div>
+                  <div>ETH: <span id="dbg_eth">—</span></div>
+                  <div>Decimals: <span id="dbg_dec">—</span></div>
+                  <div>Contract: <code id="dbg_token">—</code></div>
+                </div>
+              </div>
+
+            </div>
+          </article>
+
+        </section>
+
+        <!-- Status Card -->
+        <section class="card">
+          <h2>Status</h2>
+          <p>Redemption infrastructure is active.</p>
+          <p>On-chain execution and physical fulfillment pipelines are
+            operational.</p>
+        </section>
+
+      </div>
+    </main>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/ethers@6.13.2/dist/ethers.umd.min.js"></script>
+    <script src="./redeem.js"></script>
+
+    <!-- ============================= -->
+    <!-- FOOTER -->
+    <!-- ============================= -->
+
+    <footer class="site-footer">
+      <p>
+        Cosigo System — Structure over speculation · Value over price ·
+        Continuity over volatility · Architecture over hype.
+
+        <a href="https://github.com/cosigo"
+          aria-label="Cosigo GitHub organization"
+          title="Cosigo open-source repositories"
+          class="github-link">
+          <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+            <path fill="currentColor"
+              d="M8 0C3.58 0 0 3.65 0 8.15c0 3.6 2.29 6.65 5.47 7.73.4.08.55-.18.55-.39
+          0-.19-.01-.82-.01-1.49-2.01.45-2.53-.5-2.69-.96-.09-.23-.48-.96-.82-1.15
+          -.28-.15-.68-.52-.01-.53.63-.01 1.08.6 1.23.85.72 1.23 1.87.88
+          2.33.67.07-.53.28-.88.51-1.08-1.78-.2-3.64-.91-3.64-4.05
+          0-.89.31-1.62.82-2.19-.08-.2-.36-1.02.08-2.12 0 0 .67-.22
+          2.2.84.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27
+          1.53-1.06 2.2-.84 2.2-.84.44 1.1.16 1.92.08 2.12.51.57
+          .82 1.3.82 2.19 0 3.15-1.87 3.85-3.65 4.05.29.26.54.77
+          .54 1.56 0 1.13-.01 2.04-.01 2.32 0 .21.15.47.55.39
+          C13.71 14.8 16 11.75 16 8.15 16 3.65 12.42 0 8 0z" />
+          </svg>
+          <span class="visually-hidden">GitHub</span>
+        </a>
+      </p>
+    </footer>
+
+  </body>
+</html>
