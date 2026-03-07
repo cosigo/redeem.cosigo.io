@@ -1,42 +1,47 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Cosigo Redemption — Physical Silver Redemption Interface</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 
-    <meta name="description" content="Cosigo redemption interface for converting Cosigo-linked units into physical silver through the official redemption flow. Preview redemption amounts, select fulfillment method, and submit on-chain redemption.">
-    <meta name="keywords" content="Cosigo redemption, silver redemption, physical silver redemption, redeem Cosigo, redeem token for silver, Cosigo holder redemption, Cosigo settlement">
-    <meta name="author" content="Cosigo Protocol">
+<head>
+  <meta charset="utf-8">
+  <title>Cosigo Redemption — Physical Silver Redemption Interface</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 
-    <link rel="canonical" href="https://redeem.cosigo.io/">
+  <meta name="description"
+    content="Cosigo redemption interface for converting Cosigo-linked units into physical silver through the official redemption flow. Preview redemption amounts, select fulfillment method, and submit on-chain redemption.">
+  <meta name="keywords"
+    content="Cosigo redemption, silver redemption, physical silver redemption, redeem Cosigo, redeem token for silver, Cosigo holder redemption, Cosigo settlement">
+  <meta name="author" content="Cosigo Protocol">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Cosigo Redemption — Physical Silver Redemption Interface">
-    <meta property="og:description" content="Official Cosigo redemption interface for holder redemption and physical silver fulfillment.">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Cosigo">
-    <meta property="og:url" content="https://redeem.cosigo.io/">
+  <link rel="canonical" href="https://redeem.cosigo.io/">
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Cosigo Redemption — Physical Silver Redemption Interface">
-    <meta name="twitter:description" content="Official Cosigo redemption interface for holder redemption and physical silver fulfillment.">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Cosigo Redemption — Physical Silver Redemption Interface">
+  <meta property="og:description"
+    content="Official Cosigo redemption interface for holder redemption and physical silver fulfillment.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Cosigo">
+  <meta property="og:url" content="https://redeem.cosigo.io/">
 
-    <!-- Shared System Styles -->
-    <link rel="stylesheet" href="/shared/nav.css">
-    <link rel="stylesheet" href="/shared/style.css">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cosigo Redemption — Physical Silver Redemption Interface">
+  <meta name="twitter:description"
+    content="Official Cosigo redemption interface for holder redemption and physical silver fulfillment.">
 
-    <!-- Favicons -->
-    <link rel="icon" href="/favicon.ico" sizes="any">
-    <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
-    <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+  <!-- Shared System Styles -->
+  <link rel="stylesheet" href="/shared/nav.css">
+  <link rel="stylesheet" href="/shared/style.css">
 
-    <!-- Schema.org -->
-    <script type="application/ld+json">
+  <!-- Favicons -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "WebPage",
@@ -58,418 +63,434 @@
       }
     </script>
 
-    <style>
-      .hero-grid{
-        display:grid;
-        grid-template-columns: 1.25fr .85fr;
-        gap:1.2rem;
-        align-items:stretch;
+  <style>
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr .85fr;
+      gap: 1.2rem;
+      align-items: stretch;
+    }
+
+    .redeem-shell {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 1.2rem;
+      align-items: start;
+    }
+
+    .redeem-panel {
+      border: 1px solid var(--line, rgba(255, 255, 255, .12));
+      background: linear-gradient(180deg, rgba(255, 255, 255, .03), rgba(255, 255, 255, .02));
+      border-radius: 20px;
+      padding: 1rem;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, .18);
+    }
+
+    .redeem-panel h2,
+    .redeem-panel h3 {
+      margin-top: 0;
+    }
+
+    .eyebrow {
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-size: .82rem;
+      opacity: .82;
+      margin-bottom: .6rem;
+    }
+
+    .kicker {
+      display: inline-block;
+      padding: .35rem .65rem;
+      border: 1px solid var(--line, rgba(255, 255, 255, .12));
+      border-radius: 999px;
+      font-size: .82rem;
+      margin: .15rem .35rem .35rem 0;
+      background: rgba(255, 255, 255, .03);
+    }
+
+    .info-list,
+    .steps-list {
+      margin: .5rem 0 0 1.15rem;
+      padding: 0;
+    }
+
+    .info-list li,
+    .steps-list li {
+      margin: .38rem 0;
+    }
+
+    .redeem-form {
+      display: grid;
+      gap: .9rem;
+    }
+
+    .field {
+      display: grid;
+      gap: .35rem;
+    }
+
+    .field label {
+      font-weight: 700;
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      padding: .82rem .92rem;
+      border-radius: 14px;
+      border: 1px solid var(--line, rgba(255, 255, 255, .14));
+      background: rgba(255, 255, 255, .03);
+      color: inherit;
+      font: inherit;
+    }
+
+    .field small {
+      opacity: .8;
+      line-height: 1.45;
+    }
+
+    .btnrow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .7rem;
+      margin-top: .2rem;
+    }
+
+    .btn,
+    .btnPrimary {
+      appearance: none;
+      border: none;
+      border-radius: 14px;
+      padding: .82rem 1.05rem;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .btn {
+      background: rgba(255, 255, 255, .08);
+      color: inherit;
+      border: 1px solid var(--line, rgba(255, 255, 255, .14));
+    }
+
+    .btnPrimary {
+      background: linear-gradient(90deg, #b87333, #d7dde8 52%, #d4af37);
+      color: #0b0d12;
+    }
+
+    .msg,
+    .box {
+      margin-top: .9rem;
+      border-radius: 16px;
+      padding: .9rem 1rem;
+      border: 1px solid var(--line, rgba(255, 255, 255, .12));
+      background: rgba(255, 255, 255, .03);
+    }
+
+    .box strong.section-title {
+      display: block;
+      margin-bottom: .45rem;
+    }
+
+    .contract-link code {
+      font-family: monospace;
+      color: var(--silver);
+      background: rgba(255, 255, 255, .04);
+      padding: 4px 8px;
+      border-radius: 6px;
+      word-break: break-all;
+    }
+
+    .note {
+      font-size: .95rem;
+      line-height: 1.55;
+      opacity: .92;
+    }
+
+    .warning-box {
+      border-left: 4px solid #d4af37;
+    }
+
+    .dbg {
+      margin-top: 1rem;
+      padding: .85rem 1rem;
+      border-radius: 16px;
+      border: 1px solid var(--line, rgba(255, 255, 255, .12));
+      background: rgba(255, 255, 255, .02);
+      font-size: .92rem;
+      line-height: 1.55;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .section-spacer {
+      margin-top: 1rem;
+    }
+
+    hr.rule {
+      border: none;
+      border-top: 1px solid var(--line, rgba(255, 255, 255, .1));
+      margin: 1rem 0;
+    }
+
+    @media (max-width: 980px) {
+
+      .hero-grid,
+      .redeem-shell,
+      .mini-grid {
+        grid-template-columns: 1fr;
       }
+    }
+  </style>
+</head>
 
-      .redeem-shell{
-        display:grid;
-        grid-template-columns: 1.2fr .8fr;
-        gap:1.2rem;
-        align-items:start;
-      }
+<body>
 
-      .redeem-panel{
-        border:1px solid var(--line, rgba(255,255,255,.12));
-        background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
-        border-radius:20px;
-        padding:1rem;
-        box-shadow:0 12px 30px rgba(0,0,0,.18);
-      }
+  <!-- ========================= -->
+  <!-- Cosigo Universal Nav -->
+  <!-- ========================= -->
+  <div id="cosigo-nav"></div>
 
-      .redeem-panel h2,
-      .redeem-panel h3{
-        margin-top:0;
-      }
+  <script>
+    fetch('/shared/nav.html')
+      .then(res => res.text())
+      .then(html => { document.getElementById('cosigo-nav').innerHTML = html; })
+      .catch(err => console.error("Nav load error:", err));
+  </script>
 
-      .eyebrow{
-        letter-spacing:.12em;
-        text-transform:uppercase;
-        font-size:.82rem;
-        opacity:.82;
-        margin-bottom:.6rem;
-      }
+  <!-- ========================= -->
+  <!-- Main Content -->
+  <!-- ========================= -->
+  <main>
+    <div class="wrap">
 
-      .kicker{
-        display:inline-block;
-        padding:.35rem .65rem;
-        border:1px solid var(--line, rgba(255,255,255,.12));
-        border-radius:999px;
-        font-size:.82rem;
-        margin:.15rem .35rem .35rem 0;
-        background:rgba(255,255,255,.03);
-      }
+      <div class="bar">
+        <i class="g"></i><i class="s"></i><i class="c"></i>
+      </div>
 
-      .info-list,
-      .steps-list{
-        margin:.5rem 0 0 1.15rem;
-        padding:0;
-      }
+      <!-- Hero -->
+      <section class="hero-grid">
+        <div class="card">
+          <div class="eyebrow">Holder Interface</div>
+          <h1>Cosigo — Redemption</h1>
+          <p class="lead"><strong>Physical Silver Redemption & Settlement</strong></p>
 
-      .info-list li,
-      .steps-list li{
-        margin:.38rem 0;
-      }
+          <p>
+            This interface is for holders redeeming Cosigo-linked value into physical silver
+            through the official on-chain redemption process.
+          </p>
 
-      .redeem-form{
-        display:grid;
-        gap:.9rem;
-      }
+          <p>
+            Redemption is the settlement layer of the Cosigo system. It connects the digital unit,
+            the registry logic, and the physical silver anchor through a defined holder-facing path.
+          </p>
 
-      .field{
-        display:grid;
-        gap:.35rem;
-      }
-
-      .field label{
-        font-weight:700;
-      }
-
-      .field input,
-      .field select{
-        width:100%;
-        padding:.82rem .92rem;
-        border-radius:14px;
-        border:1px solid var(--line, rgba(255,255,255,.14));
-        background:rgba(255,255,255,.03);
-        color:inherit;
-        font:inherit;
-      }
-
-      .field small{
-        opacity:.8;
-        line-height:1.45;
-      }
-
-      .btnrow{
-        display:flex;
-        flex-wrap:wrap;
-        gap:.7rem;
-        margin-top:.2rem;
-      }
-
-      .btn,
-      .btnPrimary{
-        appearance:none;
-        border:none;
-        border-radius:14px;
-        padding:.82rem 1.05rem;
-        font:inherit;
-        font-weight:700;
-        cursor:pointer;
-      }
-
-      .btn{
-        background:rgba(255,255,255,.08);
-        color:inherit;
-        border:1px solid var(--line, rgba(255,255,255,.14));
-      }
-
-      .btnPrimary{
-        background:linear-gradient(90deg, #b87333, #d7dde8 52%, #d4af37);
-        color:#0b0d12;
-      }
-
-      .msg,
-      .box{
-        margin-top:.9rem;
-        border-radius:16px;
-        padding:.9rem 1rem;
-        border:1px solid var(--line, rgba(255,255,255,.12));
-        background:rgba(255,255,255,.03);
-      }
-
-      .box strong.section-title{
-        display:block;
-        margin-bottom:.45rem;
-      }
-
-      .note{
-        font-size:.95rem;
-        line-height:1.55;
-        opacity:.92;
-      }
-
-      .warning-box{
-        border-left:4px solid #d4af37;
-      }
-
-      .dbg{
-        margin-top:1rem;
-        padding:.85rem 1rem;
-        border-radius:16px;
-        border:1px solid var(--line, rgba(255,255,255,.12));
-        background:rgba(255,255,255,.02);
-        font-size:.92rem;
-        line-height:1.55;
-      }
-
-      .mini-grid{
-        display:grid;
-        grid-template-columns:repeat(2, minmax(0,1fr));
-        gap:1rem;
-      }
-
-      .section-spacer{
-        margin-top:1rem;
-      }
-
-      hr.rule{
-        border:none;
-        border-top:1px solid var(--line, rgba(255,255,255,.1));
-        margin:1rem 0;
-      }
-
-      @media (max-width: 980px){
-        .hero-grid,
-        .redeem-shell,
-        .mini-grid{
-          grid-template-columns:1fr;
-        }
-      }
-    </style>
-  </head>
-
-  <body>
-
-    <!-- ========================= -->
-    <!-- Cosigo Universal Nav -->
-    <!-- ========================= -->
-    <div id="cosigo-nav"></div>
-
-    <script>
-      fetch('/shared/nav.html')
-        .then(res => res.text())
-        .then(html => { document.getElementById('cosigo-nav').innerHTML = html; })
-        .catch(err => console.error("Nav load error:", err));
-    </script>
-
-    <!-- ========================= -->
-    <!-- Main Content -->
-    <!-- ========================= -->
-    <main>
-      <div class="wrap">
-
-        <div class="bar">
-          <i class="g"></i><i class="s"></i><i class="c"></i>
+          <div class="section-spacer">
+            <span class="kicker">On-chain redemption</span>
+            <span class="kicker">Physical silver fulfillment</span>
+            <span class="kicker">Ethereum mainnet</span>
+            <span class="kicker">Holder settlement path</span>
+          </div>
         </div>
 
-        <!-- Hero -->
-        <section class="hero-grid">
-          <div class="card">
-            <div class="eyebrow">Holder Interface</div>
-            <h1>Cosigo — Redemption</h1>
-            <p class="lead"><strong>Physical Silver Redemption & Settlement</strong></p>
+        <div class="card">
+          <div class="eyebrow">Core Principle</div>
+          <h2>What redemption means</h2>
+          <p>
+            Redemption is the mechanism by which a holder requests settlement against the
+            Cosigo silver anchor under the applicable contract rules, fulfillment terms,
+            thresholds, and delivery method.
+          </p>
+          <ul class="info-list">
+            <li>Enter the redemption amount in <strong>milligrams (mg)</strong></li>
+            <li>Preview the transaction and settlement path</li>
+            <li>Submit the on-chain redemption transaction</li>
+            <li>Complete delivery or in-person fulfillment as applicable</li>
+          </ul>
+        </div>
+      </section>
 
-            <p>
-              This interface is for holders redeeming Cosigo-linked value into physical silver
-              through the official on-chain redemption process.
+      <!-- Redemption Shell -->
+      <section class="redeem-shell section-spacer">
+
+        <!-- Left / Main Action -->
+        <article class="redeem-panel">
+          <div class="eyebrow">Redemption Form</div>
+
+          <div id="cosigoRedeem">
+            <h2>Redeem Silver</h2>
+            <p class="note">
+              Use this form to preview and execute a redemption request.
+              Amounts are entered in <strong>milligrams (mg)</strong>.
             </p>
 
-            <p>
-              Redemption is the settlement layer of the Cosigo system. It connects the digital unit,
-              the registry logic, and the physical silver anchor through a defined holder-facing path.
-            </p>
+            <div class="redeem-form">
 
-            <div class="section-spacer">
-              <span class="kicker">On-chain redemption</span>
-              <span class="kicker">Physical silver fulfillment</span>
-              <span class="kicker">Ethereum mainnet</span>
-              <span class="kicker">Holder settlement path</span>
+              <div class="field">
+                <label for="cr_amount">Amount to redeem (mg)</label>
+                <input id="cr_amount" type="number" min="1" step="1" placeholder="e.g. 2500">
+                <small>Enter the redemption amount in milligrams of silver reference.</small>
+              </div>
+
+              <div class="field">
+                <label for="cr_delivery">Delivery method</label>
+                <select id="cr_delivery">
+                  <option value="inperson" selected>In person</option>
+                  <option value="ship">Ship</option>
+                </select>
+                <small>Select the intended fulfillment method for this redemption request.</small>
+              </div>
+
+              <div class="field">
+                <label for="cr_zip">ZIP / postal code (if shipping)</label>
+                <input id="cr_zip" type="text" maxlength="10" placeholder="optional">
+                <small>Used only as a preliminary shipping reference if fulfillment is by shipment.</small>
+              </div>
+
+              <div class="btnrow">
+                <button id="cr_preview" class="btn" type="button">Preview Redemption</button>
+                <button id="cr_btn" class="btnPrimary" type="button">Connect & Redeem</button>
+              </div>
+
+              <div id="cr_msg" class="msg"></div>
+              <div id="cr_quote" class="box" style="display:none"></div>
+              <div id="cr_result" class="box" style="display:none"></div>
             </div>
-          </div>
 
-          <div class="card">
-            <div class="eyebrow">Core Principle</div>
-            <h2>What redemption means</h2>
-            <p>
-              Redemption is the mechanism by which a holder requests settlement against the
-              Cosigo silver anchor under the applicable contract rules, fulfillment terms,
-              thresholds, and delivery method.
-            </p>
-            <ul class="info-list">
-              <li>Enter the redemption amount in <strong>milligrams (mg)</strong></li>
-              <li>Preview the transaction and settlement path</li>
-              <li>Submit the on-chain redemption transaction</li>
-              <li>Complete delivery or in-person fulfillment as applicable</li>
-            </ul>
-          </div>
-        </section>
+            <hr class="rule">
 
-        <!-- Redemption Shell -->
-        <section class="redeem-shell section-spacer">
-
-          <!-- Left / Main Action -->
-          <article class="redeem-panel">
-            <div class="eyebrow">Redemption Form</div>
-
-            <div id="cosigoRedeem">
-              <h2>Redeem Silver</h2>
-              <p class="note">
-                Use this form to preview and execute a redemption request.
-                Amounts are entered in <strong>milligrams (mg)</strong>.
+            <div class="box">
+              <strong class="section-title">Shipping / Fulfillment</strong>
+              <div class="note">
+                If you selected <strong>Ship</strong>, send your <strong>transaction hash</strong>
+                after the on-chain redemption is confirmed.
+              </div>
+              <ul class="info-list">
+                <li>Email: <a href="mailto:sales@cosigo.io">sales@cosigo.io</a></li>
+                <li>Contact form: <a href="https://contact.cosigo.io">contact.cosigo.io</a></li>
+              </ul>
+              <p class="note" style="margin-top:.8rem;">
+                Include your tx hash, redemption amount, delivery method, and shipping details.
               </p>
+            </div>
 
-              <div class="redeem-form">
-
-                <div class="field">
-                  <label for="cr_amount">Amount to redeem (mg)</label>
-                  <input id="cr_amount" type="number" min="1" step="1" placeholder="e.g. 2500">
-                  <small>Enter the redemption amount in milligrams of silver reference.</small>
-                </div>
-
-                <div class="field">
-                  <label for="cr_delivery">Delivery method</label>
-                  <select id="cr_delivery">
-                    <option value="inperson" selected>In person</option>
-                    <option value="ship">Ship</option>
-                  </select>
-                  <small>Select the intended fulfillment method for this redemption request.</small>
-                </div>
-
-                <div class="field">
-                  <label for="cr_zip">ZIP / postal code (if shipping)</label>
-                  <input id="cr_zip" type="text" maxlength="10" placeholder="optional">
-                  <small>Used only as a preliminary shipping reference if fulfillment is by shipment.</small>
-                </div>
-
-                <div class="btnrow">
-                  <button id="cr_preview" class="btn" type="button">Preview Redemption</button>
-                  <button id="cr_btn" class="btnPrimary" type="button">Connect & Redeem</button>
-                </div>
-
-                <div id="cr_msg" class="msg"></div>
-                <div id="cr_quote" class="box" style="display:none"></div>
-                <div id="cr_result" class="box" style="display:none"></div>
-              </div>
-
-              <hr class="rule">
-
-              <div class="box">
-                <strong class="section-title">Shipping / Fulfillment</strong>
-                <div class="note">
-                  If you selected <strong>Ship</strong>, send your <strong>transaction hash</strong>
-                  after the on-chain redemption is confirmed.
-                </div>
-                <ul class="info-list">
-                  <li>Email: <a href="mailto:sales@cosigo.io">sales@cosigo.io</a></li>
-                  <li>Contact form: <a href="https://contact.cosigo.io">contact.cosigo.io</a></li>
-                </ul>
-                <p class="note" style="margin-top:.8rem;">
-                  Include your tx hash, redemption amount, delivery method, and shipping details.
-                </p>
-              </div>
-
-              <div class="box warning-box">
-                <strong class="section-title">Important</strong>
-                <div class="note">
-                  This process submits an on-chain transaction and may burn tokens according to
-                  contract rules. Always verify that you are on <strong>redeem.cosigo.io</strong>,
-                  connected to <strong>Ethereum mainnet</strong>, and reviewing the correct contract
-                  details before confirming.
-                </div>
-              </div>
-
-              <div class="dbg">
-                <div><strong>Account:</strong> <span id="dbg_acct">—</span></div>
-                <div><strong>Chain:</strong> <span id="dbg_chain">—</span></div>
-                <div><strong>ETH:</strong> <span id="dbg_eth">—</span></div>
-                <div><strong>Decimals:</strong> <span id="dbg_dec">—</span></div>
-                <div><strong>Contract:</strong> <code id="dbg_token">—</code></div>
+            <div class="box warning-box">
+              <strong class="section-title">Important</strong>
+              <div class="note">
+                This process submits an on-chain transaction and may burn tokens according to
+                contract rules. Always verify that you are on <strong>redeem.cosigo.io</strong>,
+                connected to <strong>Ethereum mainnet</strong>, and reviewing the correct contract
+                details before confirming.
               </div>
             </div>
-          </article>
 
-          <!-- Right / Guidance -->
-          <aside class="redeem-panel">
-            <div class="eyebrow">Redemption Guidance</div>
-            <h2>How to redeem</h2>
+            <div class="dbg">
+              <div><strong>Account:</strong> <span id="dbg_acct">—</span></div>
+              <div><strong>Chain:</strong> <span id="dbg_chain">—</span></div>
+              <div><strong>ETH:</strong> <span id="dbg_eth">—</span></div>
+              <div><strong>Decimals:</strong> <span id="dbg_dec">—</span></div>
+              <div><strong>Contract:</strong> <code id="dbg_token">—</code></div>
+            </div>
+          </div>
+        </article>
 
-            <h3>Before you start</h3>
-            <ol class="steps-list">
-              <li>Make sure you hold <strong>Cosigo tokens</strong> in your wallet.</li>
-              <li>Make sure you have a small amount of <strong>ETH</strong> for network fees.</li>
-              <li>This interface is intended for <strong>Ethereum mainnet (chainId 1)</strong>.</li>
-              <li>Use your wallet browser when possible for the smoothest connection flow.</li>
-            </ol>
+        <!-- Right / Guidance -->
+        <aside class="redeem-panel">
+          <div class="eyebrow">Redemption Guidance</div>
+          <h2>How to redeem</h2>
 
-            <hr class="rule">
+          <h3>Before you start</h3>
+          <ol class="steps-list">
+            <li>Make sure you hold <strong>Cosigo tokens</strong> in your wallet.</li>
+            <li>Make sure you have a small amount of <strong>ETH</strong> for network fees.</li>
+            <li>
+              This interface is intended for <strong>Ethereum mainnet (chainId 1)</strong>.
+            </li>
+            <li>
+              Confirm the official Cosigo contract address matches:<br>
+              <a href="https://etherscan.io/address/0x0f1e8ee8a035270ed9952591d7dbdc600e2b4a49#code" target="_blank"
+                rel="noopener noreferrer" class="contract-link">
+                <code>0x0f1e8ee8a035270ed9952591d7dbdc600e2b4a49</code>
+              </a>
+            </li>
+            <li>Use your wallet browser when possible for the smoothest connection flow.</li>
+          </ol>
 
-            <h3>Step-by-step</h3>
-            <ol class="steps-list">
-              <li>Open this page inside your wallet browser or connect your wallet.</li>
-              <li>Enter the redemption amount in <strong>milligrams (mg)</strong>.</li>
-              <li>Select your preferred fulfillment method.</li>
-              <li>Press <strong>Preview Redemption</strong> to review the request.</li>
-              <li>Press <strong>Connect & Redeem</strong> to initiate the on-chain action.</li>
-              <li>Confirm the transaction in your wallet.</li>
-              <li>Retain the transaction hash for fulfillment and recordkeeping.</li>
-            </ol>
+          <hr class="rule">
 
-            <hr class="rule">
+          <h3>Step-by-step</h3>
+          <ol class="steps-list">
+            <li>Open this page inside your wallet browser or connect your wallet.</li>
+            <li>Enter the redemption amount in <strong>milligrams (mg)</strong>.</li>
+            <li>Select your preferred fulfillment method.</li>
+            <li>Press <strong>Preview Redemption</strong> to review the request.</li>
+            <li>Press <strong>Connect & Redeem</strong> to initiate the on-chain action.</li>
+            <li>Confirm the transaction in your wallet.</li>
+            <li>Retain the transaction hash for fulfillment and recordkeeping.</li>
+          </ol>
 
-            <div class="mini-grid">
-              <div class="box">
-                <strong class="section-title">System Role</strong>
-                <div class="note">
-                  Redemption is the settlement layer connecting token, registry, and physical silver.
-                </div>
-              </div>
+          <hr class="rule">
 
-              <div class="box">
-                <strong class="section-title">Fulfillment Path</strong>
-                <div class="note">
-                  In-person and shipping flows may involve additional coordination after confirmation.
-                </div>
+          <div class="mini-grid">
+            <div class="box">
+              <strong class="section-title">System Role</strong>
+              <div class="note">
+                Redemption is the settlement layer connecting token, registry, and physical silver.
               </div>
             </div>
-          </aside>
-        </section>
 
-        <!-- Status / Trust -->
-        <section class="grid section-spacer">
-          <div class="card">
-            <h2>Status</h2>
-            <p>Redemption infrastructure is active.</p>
-            <p>On-chain execution and physical fulfillment pipelines are operational.</p>
+            <div class="box">
+              <strong class="section-title">Fulfillment Path</strong>
+              <div class="note">
+                In-person and shipping flows may involve additional coordination after confirmation.
+              </div>
+            </div>
           </div>
+        </aside>
+      </section>
 
-          <div class="card">
-            <h2>Related System Layers</h2>
-            <ul>
-              <li><a href="https://value.cosigo.io/">value.cosigo.io</a> — value logic and silver anchor</li>
-              <li><a href="https://registry.cosigo.io/">registry.cosigo.io</a> — supporting records and references</li>
-              <li><a href="https://authentic.cosigo.io/">authentic.cosigo.io</a> — authenticity and provenance checks</li>
-              <li><a href="https://docs.cosigo.io/">docs.cosigo.io</a> — documentation and system map</li>
-            </ul>
-          </div>
-        </section>
+      <!-- Status / Trust -->
+      <section class="grid section-spacer">
+        <div class="card">
+          <h2>Status</h2>
+          <p>Redemption infrastructure is active.</p>
+          <p>On-chain execution and physical fulfillment pipelines are operational.</p>
+        </div>
 
-      </div>
-    </main>
+        <div class="card">
+          <h2>Related System Layers</h2>
+          <ul>
+            <li><a href="https://value.cosigo.io/">value.cosigo.io</a> — value logic and silver anchor</li>
+            <li><a href="https://registry.cosigo.io/">registry.cosigo.io</a> — supporting records and references</li>
+            <li><a href="https://authentic.cosigo.io/">authentic.cosigo.io</a> — authenticity and provenance checks</li>
+            <li><a href="https://docs.cosigo.io/">docs.cosigo.io</a> — documentation and system map</li>
+          </ul>
+        </div>
+      </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.2/dist/ethers.umd.min.js"></script>
-    <script src="./redeem.js"></script>
+    </div>
+  </main>
 
-    <!-- ============================= -->
-    <!-- FOOTER -->
-    <!-- ============================= -->
-    <footer class="site-footer">
-      <p>
-        Cosigo System — Structure over speculation · Value over price ·
-        Continuity over volatility · Architecture over hype.
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.2/dist/ethers.umd.min.js"></script>
+  <script src="./redeem.js"></script>
 
-        <a href="https://github.com/cosigo"
-          aria-label="Cosigo GitHub organization"
-          title="Cosigo open-source repositories"
-          class="github-link">
-          <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
-            <path fill="currentColor"
-              d="M8 0C3.58 0 0 3.65 0 8.15c0 3.6 2.29 6.65 5.47 7.73.4.08.55-.18.55-.39
+  <!-- ============================= -->
+  <!-- FOOTER -->
+  <!-- ============================= -->
+  <footer class="site-footer">
+    <p>
+      Cosigo System — Structure over speculation · Value over price ·
+      Continuity over volatility · Architecture over hype.
+
+      <a href="https://github.com/cosigo" aria-label="Cosigo GitHub organization"
+        title="Cosigo open-source repositories" class="github-link">
+        <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+          <path fill="currentColor" d="M8 0C3.58 0 0 3.65 0 8.15c0 3.6 2.29 6.65 5.47 7.73.4.08.55-.18.55-.39
           0-.19-.01-.82-.01-1.49-2.01.45-2.53-.5-2.69-.96-.09-.23-.48-.96-.82-1.15
           -.28-.15-.68-.52-.01-.53.63-.01 1.08.6 1.23.85.72 1.23 1.87.88
           2.33.67.07-.53.28-.88.51-1.08-1.78-.2-3.64-.91-3.64-4.05
@@ -479,11 +500,12 @@
           .82 1.3.82 2.19 0 3.15-1.87 3.85-3.65 4.05.29.26.54.77
           .54 1.56 0 1.13-.01 2.04-.01 2.32 0 .21.15.47.55.39
           C13.71 14.8 16 11.75 16 8.15 16 3.65 12.42 0 8 0z" />
-          </svg>
-          <span class="visually-hidden">GitHub</span>
-        </a>
-      </p>
-    </footer>
+        </svg>
+        <span class="visually-hidden">GitHub</span>
+      </a>
+    </p>
+  </footer>
 
-  </body>
+</body>
+
 </html>
