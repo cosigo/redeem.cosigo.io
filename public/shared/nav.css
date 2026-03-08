@@ -36,7 +36,7 @@
 
 /* Proportional system mark */
 .cosigo-nav .cosigo-mark{
-  height: clamp(26px, 1.2vw, 32px);
+  height: clamp(32px, 1.2vw, 32px);
   width: auto;
   display: block;
   opacity: .8;
